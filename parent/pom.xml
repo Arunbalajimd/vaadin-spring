@@ -90,6 +90,159 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- === VAADIN PLUGINS === -->
+
+            <!--
+                Integration Spring and Vaadin. And some useful features.
+
+                DO NOT REMOVE THIS!
+            -->
+            <dependency>
+                <groupId>ru.xpoft.vaadin</groupId>
+                <artifactId>spring-vaadin-integration</artifactId>
+                <version>1.7.3</version>
+            </dependency>
+
+            <!--
+                Utilities for CDI/Vaadin applications.
+
+                DO NOT REMOVE IF YOU WANT TO INTEGRATE VAADIN WITH CDI.
+            -->
+            <dependency>
+                <groupId>org.vaadin.virkki</groupId>
+                <artifactId>cdi-utils</artifactId>
+                <version>2.1.1</version>
+            </dependency>
+
+            <!-- A versatile confirmation dialog for Vaadin -->
+            <dependency>
+                <groupId>org.vaadin.addon</groupId>
+                <artifactId>confirmdialog</artifactId>
+                <version>2.0.4</version>
+            </dependency>
+
+            <!-- A non-visible poller component -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>refresher</artifactId>
+                <version>1.2.1.7</version>
+            </dependency>
+
+            <!-- Animator add-on provides many types of animations for all other components, even sub-windows. -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>animator</artifactId>
+                <version>1.7.3</version>
+            </dependency>
+
+            <!-- Provides contextual help for Vaadin applications. -->
+            <dependency>
+                <groupId>org.vaadin.jonatan</groupId>
+                <artifactId>contexthelp</artifactId>
+                <version>2.0.0.beta1</version>
+            </dependency>
+
+            <!-- Export Tables to Excel -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>tableexport</artifactId>
+                <version>1.4.0</version>
+            </dependency>
+
+            <!-- A Table component that uses pages instead of scrolling -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>pagedtable</artifactId>
+                <version>0.6.5</version>
+            </dependency>
+
+            <!-- Extension of Vaadin Table, provides a filter bar below the table header -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>filteringtable</artifactId>
+                <version>0.8.4.v7</version>
+            </dependency>
+
+            <!-- Use file uploads as fields in Form, upload multiple files at once - easily! -->
+            <dependency>
+                <groupId>org.vaadin.addon</groupId>
+                <artifactId>easyuploads</artifactId>
+                <version>7.0.0</version>
+            </dependency>
+
+            <!--
+                Lazy Query Container addon provides container with support for normal reads and lazy loading reads
+                from sources like WebService client, JDBC connection, JPA
+            -->
+            <dependency>
+                <groupId>org.vaadin.addons.lazyquerycontainer</groupId>
+                <artifactId>vaadin-lazyquerycontainer</artifactId>
+                <version>2.0.4</version>
+            </dependency>
+
+            <!-- A generic blackboard system for listening to and firing events. -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>blackboard</artifactId>
+                <version>2.2.0</version>
+            </dependency>
+
+            <!-- Vaadin 7 Supported! - ContextMenu is hierarchical menu allowing popup context options for multitude of components -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>contextmenu</artifactId>
+                <version>4.1.3</version>
+            </dependency>
+
+            <!-- A field for selecting multiple tokens/tags; a.k.a multi-select ComboBox -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>tokenfield</artifactId>
+                <version>7.0.1</version>
+            </dependency>
+
+            <!-- RatingStars is a typical rating component with customizable theme. -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>ratingstars</artifactId>
+                <version>2.1</version>
+            </dependency>
+
+            <!-- Vaadin Calendar is a tool for displaying and managing events -->
+            <dependency>
+                <groupId>com.vaadin.addon</groupId>
+                <artifactId>vaadin-calendar</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
+            <!-- Vaadin 7 Supported! - ButtonGroup allows developer to group together commonly used buttons for minimum layout space -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>buttongroup</artifactId>
+                <version>2.3</version>
+            </dependency>
+
+            <!-- A BorderLayout -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>borderlayout</artifactId>
+                <version>0.5</version>
+            </dependency>
+
+            <!-- Component for adding dynamic CSS styles -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>cssinject</artifactId>
+                <version>2.0.3</version>
+            </dependency>
+
+            <!-- Add QR codes to your Vaadin applications -->
+            <dependency>
+                <groupId>org.vaadin.addons</groupId>
+                <artifactId>qrcode</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
             <!-- === TESTING-DEPENDENCIES === -->
 
             <!--
