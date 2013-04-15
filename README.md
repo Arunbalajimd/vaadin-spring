@@ -8,3 +8,5 @@ Several Vaadin 7 and Spring 3 maven archetypes for WAR/EAR projects
     
 With all common and interesting plugins and extensions configured for quick project setup.
 Remove everything you don't need and use it as template for your own project.
+
+STILL UNDER DEVELOPMENT...
