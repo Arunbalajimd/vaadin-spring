@@ -105,9 +105,6 @@
         </profile>
         <profile>
             <id>cdi</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <dependencies>
                 <dependency>
                     <groupId>org.vaadin.virkki</groupId>
@@ -117,9 +114,6 @@
         </profile>
         <profile>
             <id>vaadin-plugins</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <dependencies>
 
                 <!-- A versatile confirmation dialog for Vaadin -->

@@ -6,11 +6,15 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  * The Application's "main" class
  */
 @SuppressWarnings("serial")
+@Component
+@Scope("prototype")
 public class MyVaadinUI extends UI {
 
     @Override

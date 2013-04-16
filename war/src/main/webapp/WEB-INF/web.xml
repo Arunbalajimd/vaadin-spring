@@ -10,10 +10,10 @@
     </context-param>
     <servlet>
         <servlet-name>Vaadin Application Servlet</servlet-name>
-        <servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+        <servlet-class>ru.xpoft.vaadin.SpringVaadinServlet</servlet-class>
         <init-param>
             <description>Vaadin UI to display</description>
-            <param-name>UI</param-name>
+            <param-name>beanName</param-name>
             <param-value>de.marcbosserhoff.MyVaadinUI</param-value>
         </init-param>
         <init-param>
