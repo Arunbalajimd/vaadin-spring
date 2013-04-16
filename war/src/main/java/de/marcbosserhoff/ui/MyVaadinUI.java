@@ -1,4 +1,4 @@
-package de.marcbosserhoff;
+package de.marcbosserhoff.ui;
 
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
