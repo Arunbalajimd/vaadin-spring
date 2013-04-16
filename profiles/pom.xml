@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>de.marcbosserhoff.vaadin7-spring3-archetype</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>de.marcbosserhoff</groupId>
+    <artifactId>vaadin7-spring3-profiles</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-server</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-client-compiled</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-client</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-themes</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>ru.xpoft.vaadin</groupId>
+                    <artifactId>spring-vaadin-integration</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-all</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>commons-pool</groupId>
+                    <artifactId>commons-pool</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>commons-logging</groupId>
+                            <artifactId>commons-logging</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>commons-dbcp</groupId>
+                    <artifactId>commons-dbcp</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>commons-logging</groupId>
+                            <artifactId>commons-logging</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>commons-pool</groupId>
+                            <artifactId>commons-pool</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+
+            </dependencies>
+        </profile>
+        <profile>
+            <id>cdi</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.vaadin.virkki</groupId>
+                    <artifactId>cdi-utils</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>vaadin-plugins</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+
+                <!-- A versatile confirmation dialog for Vaadin -->
+                <dependency>
+                    <groupId>org.vaadin.addon</groupId>
+                    <artifactId>confirmdialog</artifactId>
+                </dependency>
+
+                <!-- A non-visible poller component -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>refresher</artifactId>
+                </dependency>
+
+                <!-- Animator add-on provides many types of animations for all other components, even sub-windows. -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>animator</artifactId>
+                </dependency>
+
+                <!-- Provides contextual help for Vaadin applications. -->
+                <dependency>
+                    <groupId>org.vaadin.jonatan</groupId>
+                    <artifactId>contexthelp</artifactId>
+                </dependency>
+
+                <!-- Export Tables to Excel -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>tableexport</artifactId>
+                </dependency>
+
+                <!-- A Table component that uses pages instead of scrolling -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>pagedtable</artifactId>
+                </dependency>
+
+                <!-- Extension of Vaadin Table, provides a filter bar below the table header -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>filteringtable</artifactId>
+                </dependency>
+
+                <!-- Use file uploads as fields in Form, upload multiple files at once - easily! -->
+                <dependency>
+                    <groupId>org.vaadin.addon</groupId>
+                    <artifactId>easyuploads</artifactId>
+                </dependency>
+
+                <!--
+                    Lazy Query Container addon provides container with support for normal reads and lazy loading reads
+                    from sources like WebService client, JDBC connection, JPA
+                -->
+                <dependency>
+                    <groupId>org.vaadin.addons.lazyquerycontainer</groupId>
+                    <artifactId>vaadin-lazyquerycontainer</artifactId>
+                </dependency>
+
+                <!-- A generic blackboard system for listening to and firing events. -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>blackboard</artifactId>
+                </dependency>
+
+                <!-- Vaadin 7 Supported! - ContextMenu is hierarchical menu allowing popup context options for multitude of components -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>contextmenu</artifactId>
+                </dependency>
+
+                <!-- A field for selecting multiple tokens/tags; a.k.a multi-select ComboBox -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>tokenfield</artifactId>
+                </dependency>
+
+                <!-- RatingStars is a typical rating component with customizable theme. -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>ratingstars</artifactId>
+                </dependency>
+
+                <!-- Vaadin Calendar is a tool for displaying and managing events -->
+                <dependency>
+                    <groupId>com.vaadin.addon</groupId>
+                    <artifactId>vaadin-calendar</artifactId>
+                </dependency>
+
+                <!-- Vaadin 7 Supported! - ButtonGroup allows developer to group together commonly used buttons for minimum layout space -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>buttongroup</artifactId>
+                </dependency>
+
+                <!-- A BorderLayout -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>borderlayout</artifactId>
+                </dependency>
+
+                <!-- Component for adding dynamic CSS styles -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>cssinject</artifactId>
+                </dependency>
+
+                <!-- Add QR codes to your Vaadin applications -->
+                <dependency>
+                    <groupId>org.vaadin.addons</groupId>
+                    <artifactId>qrcode</artifactId>
+                </dependency>
+
+            </dependencies>
+        </profile>
+        <profile>
+            <id>spring</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-expression</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context-support</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-tx</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jdbc</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-orm</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-oxm</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc-portlet</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-test</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aspects</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-config</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-web</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-taglibs</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-jpa</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-rest-webmvc</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>hibernate</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>cglib</groupId>
+                    <artifactId>cglib</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-annotations</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-entitymanager</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                    <type>jar</type>
+                    <scope>compile</scope>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>javax.xml.bind</groupId>
+                            <artifactId>jaxb-api</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>com.sun.xml.bind</groupId>
+                            <artifactId>jaxb-impl</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+
+            </dependencies>
+        </profile>
+        <profile>
+            <id>mysql</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>apache-commons</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-io</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-compress</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-math3</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-email</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>commons-modeler</groupId>
+                    <artifactId>commons-modeler</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>commons-configuration</groupId>
+                    <artifactId>commons-configuration</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </dependency>
+
+            </dependencies>
+        </profile>
+    </profiles>
+</project>
