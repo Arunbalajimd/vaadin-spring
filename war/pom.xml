@@ -22,6 +22,10 @@
             <version>1.0-SNAPSHOT</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>blackboard</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
