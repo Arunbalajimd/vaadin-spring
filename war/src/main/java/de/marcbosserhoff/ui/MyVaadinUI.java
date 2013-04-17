@@ -35,8 +35,6 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     @Autowired
     private ExampleRepository exampleRepository;
 
-    private Button addButton;
-    private Button deleteButton;
     private Table entityTable;
     private Long selectedId;
 
@@ -96,8 +94,8 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
 
         buttonBar.setSpacing(true);
 
-        addButton = new Button("Add entry");
-        deleteButton = new Button("Delete entry");
+        final Button addButton = new Button("Add entry");
+        final Button deleteButton = new Button("Delete entry");
 
         buttonBar.addComponent(addButton);
         buttonBar.addComponent(deleteButton);
