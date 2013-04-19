@@ -77,6 +77,10 @@
             <name>OSS Sonatype Repository</name>
             <url>https://oss.sonatype.org/content/repositories/public/</url>
         </pluginRepository>
+        <pluginRepository>
+            <id>vaadin-addons</id>
+            <url>http://maven.vaadin.com/vaadin-addons</url>
+        </pluginRepository>
     </pluginRepositories>
 
     <dependencyManagement>
