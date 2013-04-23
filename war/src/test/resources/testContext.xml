@@ -10,7 +10,7 @@
             http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <!-- Datasource properties -->
-    <context:property-placeholder location="classpath*:datasource.properties"/>
+    <context:property-placeholder location="classpath*:datasource-test.properties"/>
 
     <!-- Scan for spring annotations automatically -->
     <context:component-scan base-package="de.marcbosserhoff"/>
@@ -21,10 +21,13 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
+    <bean id="persAnnoBeanPostProc" class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
     <!-- Use local jpa entitymanager factory -->
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-        <property name="persistenceUnitName" value="exampleMySQLPersistenceUnit"/>
+        <property name="persistenceUnitName" value="${persistenceUnit}"/>
         <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceXmlLocation" value="/META-INF/persistence-test.xml" />
     </bean>
 
     <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
@@ -32,13 +35,6 @@
         <property name="url" value="${database.url}"/>
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
-        <property name="testOnBorrow" value="true"/>
-        <property name="testOnReturn" value="true"/>
-        <property name="testWhileIdle" value="true"/>
-        <property name="timeBetweenEvictionRunsMillis" value="1800000"/>
-        <property name="numTestsPerEvictionRun" value="3"/>
-        <property name="minEvictableIdleTimeMillis" value="1800000"/>
-        <property name="validationQuery" value="SELECT 1"/>
     </bean>
 
     <jpa:repositories base-package="de.marcbosserhoff.repositories"/>
