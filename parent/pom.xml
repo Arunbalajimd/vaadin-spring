@@ -7,6 +7,7 @@
     <artifactId>parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>Parent POM for Spring3 and Vaadin7 projects</name>
 
     <properties>
         <jdk.version>1.7</jdk.version>

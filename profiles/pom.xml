@@ -13,6 +13,7 @@
     <artifactId>vaadin7-spring3-profiles</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>Dependencies Profiles for Spring3 and Vaadin7</name>
 
     <profiles>
         <profile>
