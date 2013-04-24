@@ -32,7 +32,7 @@
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
         <property name="persistenceUnitName" value="${persistenceUnit}"/>
         <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceXmlLocation" value="${persistenceXML}" />
+        <property name="persistenceXmlLocation" value="classpath*:${persistenceXML}" />
     </bean>
 
     <jpa:repositories base-package="de.marcbosserhoff.repositories"/>
