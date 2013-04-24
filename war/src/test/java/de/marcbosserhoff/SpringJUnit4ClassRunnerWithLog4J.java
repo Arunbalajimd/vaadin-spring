@@ -6,6 +6,9 @@ import org.springframework.util.Log4jConfigurer;
 
 import java.io.FileNotFoundException;
 
+/**
+ * Spring JUnit4 runner with standalone log4j configuration
+ */
 public class SpringJUnit4ClassRunnerWithLog4J extends SpringJUnit4ClassRunner {
 
     static {

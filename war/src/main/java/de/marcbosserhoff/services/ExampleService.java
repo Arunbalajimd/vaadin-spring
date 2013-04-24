@@ -13,12 +13,14 @@ public class ExampleService {
     private ExampleRepository exampleRepository;
 
     @Transactional
-    public void createUserWithNameAndAdress(String name, String address) {
+    public ExampleEntity createUserWithNameAndAdress(String name, String address) {
         ExampleEntity user = new ExampleEntity();
         user.setName(name);
         user.setAddress(address);
 
         exampleRepository.save(user);
         exampleRepository.flush();
+
+        return user;
     }
 }
