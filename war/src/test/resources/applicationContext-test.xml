@@ -10,7 +10,7 @@
             http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <!-- Load properties -->
-    <context:property-placeholder location="classpath*:context.properties"/>
+    <context:property-placeholder location="classpath*:context-test.properties"/>
 
     <!-- ========================== -->
     <!-- Global application context -->
@@ -27,9 +27,15 @@
 
     <!-- Use local jpa entitymanager factory -->
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-        <property name="persistenceUnitName" value="${persistenceUnit}"/>
+        <property name="packagesToScan" value="de.marcbosserhoff.model" />
         <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceXmlLocation" value="classpath*:${persistenceXML}" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="${hibernate.show_sql}" />
+                <property name="generateDdl" value="${jpa.generateDdl}" />
+                <property name="databasePlatform" value="${persistence.dialect}" />
+            </bean>
+        </property>
     </bean>
 
     <jpa:repositories base-package="de.marcbosserhoff.repositories"/>
@@ -40,13 +46,6 @@
         <property name="url" value="${database.url}"/>
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
-        <property name="testOnBorrow" value="true"/>
-        <property name="testOnReturn" value="true"/>
-        <property name="testWhileIdle" value="true"/>
-        <property name="timeBetweenEvictionRunsMillis" value="1800000"/>
-        <property name="numTestsPerEvictionRun" value="3"/>
-        <property name="minEvictableIdleTimeMillis" value="1800000"/>
-        <property name="validationQuery" value="SELECT 1"/>
     </bean>
 
 </beans>

@@ -1,13 +1,21 @@
 package de.marcbosserhoff;
 
+import de.marcbosserhoff.repositories.ExampleRepository;
+import de.marcbosserhoff.service.ExampleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/context.xml"} )
+@ContextConfiguration("classpath*:applicationContext-test.xml")
+@RunWith(SpringJUnit4ClassRunnerWithLog4J.class)
 public class ExampleTest {
+
+    @Autowired
+    ExampleService exampleService;
+
+    @Autowired
+    ExampleRepository exampleRepository;
 
     @Test
     public void exampleTest() {
