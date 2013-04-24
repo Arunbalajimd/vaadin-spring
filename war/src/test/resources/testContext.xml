@@ -21,8 +21,6 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean id="persAnnoBeanPostProc" class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
     <!-- Use local jpa entitymanager factory -->
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
         <property name="persistenceUnitName" value="${persistenceUnit}"/>

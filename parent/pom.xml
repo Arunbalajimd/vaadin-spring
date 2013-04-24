@@ -20,6 +20,7 @@
 
         <org.springframework.data.version>1.3.1.RELEASE</org.springframework.data.version>
         <org.springframework.data.rest.version>1.0.0.RELEASE</org.springframework.data.rest.version>
+        <org.springframework.data.mongodb.version>1.2.1.RELEASE</org.springframework.data.mongodb.version>
 
         <jodatime.version>2.2</jodatime.version>
         <aspectj.version>1.5.4</aspectj.version>
@@ -506,10 +507,18 @@
 
             <!-- Spring Data dependencies -->
 
+            <!-- JPA -->
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
                 <version>${org.springframework.data.version}</version>
+            </dependency>
+
+            <!-- MONGODB -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${org.springframework.data.mongodb.version}</version>
             </dependency>
 
             <dependency>
@@ -520,6 +529,7 @@
 
             <!-- === PERSISTENCE DEPENDENCIES === -->
 
+            <!-- HIBERNATE -->
             <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.0-api</artifactId>
