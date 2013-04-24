@@ -27,9 +27,15 @@
 
     <!-- Use local jpa entitymanager factory -->
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-        <property name="persistenceUnitName" value="${persistenceUnit}"/>
+        <property name="packagesToScan" value="de.marcbosserhoff.model" />
         <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceXmlLocation" value="classpath*:${persistenceXML}" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="${hibernate.show_sql}" />
+                <property name="generateDdl" value="${jpa.generateDdl}" />
+                <property name="databasePlatform" value="${persistence.dialect}" />
+            </bean>
+        </property>
     </bean>
 
     <jpa:repositories base-package="de.marcbosserhoff.repositories"/>
