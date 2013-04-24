@@ -1,7 +1,7 @@
 package de.marcbosserhoff;
 
 import de.marcbosserhoff.repositories.ExampleRepository;
-import de.marcbosserhoff.service.ExampleService;
+import de.marcbosserhoff.services.ExampleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

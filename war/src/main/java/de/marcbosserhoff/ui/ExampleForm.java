@@ -5,7 +5,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
-import de.marcbosserhoff.service.ExampleService;
+import de.marcbosserhoff.services.ExampleService;
 import de.marcbosserhoff.ui.event.ReloadEntriesEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

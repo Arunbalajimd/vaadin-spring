@@ -1,4 +1,4 @@
-package de.marcbosserhoff.service;
+package de.marcbosserhoff.services;
 
 import de.marcbosserhoff.model.ExampleEntity;
 import de.marcbosserhoff.repositories.ExampleRepository;
