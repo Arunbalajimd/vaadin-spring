@@ -10,11 +10,10 @@ If you find something thats missing give me feedback for enhancement.
     defined dependency groups are:
     - Spring3 stack (with Spring-Data)
     - Vaadin7 stack
-    - Hibernate with MySQL und HSQL
+    - Hibernate with MySQL and HSQL
     - Apache Common Libs
-- The <b>profiles</b> project defines a set of profiles to be used as predefined dependency sets for usage in your
-    projects. These profiles are not very fine grained at the moment and should be improved for different
-    data providers.
+- The <b>profiles</b> project defines a set of profiles as predefined dependency for your projects. These profiles
+    are not very fine grained at the moment and should be improved for different data providers.
 - The <b>war</b> is a fully running spring3 and vaadin7 web application stack. It comes with a little example
     implementation of a vaadin table where you can add and delete entries. There are examples of entites,
     spring-data-jpa repositories, a service layer and junit test setup with hamcrest ready to use for a quick start
