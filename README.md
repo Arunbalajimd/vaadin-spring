@@ -26,8 +26,8 @@ If you find something thats missing give me feedback for enhancement.
     - <b>services</b> - Place for your business layer
     - <b>ui</b> - Place for UI classes of vaadin
 
-    In the test area (src/test/java) is an example for an integration test with spring. For simple unit tests you
-    would mock your interfaces but you can also inject the real sevices ans DAOs if you like. The application context
+    In the test area (<b>src/test/java</b>) is an example for an integration test with spring. For simple unit tests you
+    would mock your interfaces but you can also inject the real sevices and DAOs if you like. The application context
     is setup with an in-memory hsqldb where you can start from.
 
 - The <b>war-build</b> is a multi-module building pom for building the application from scratch.
