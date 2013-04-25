@@ -34,7 +34,7 @@ If you find something thats missing give me feedback for enhancement.
 
 How to get startet:
 
-1. Get Java und Maven configured on your classpath
+1. Get Java und Maven configured on your shell
 2. Clone the repository
 3. Go to <b>war-build</b> and run: <b>mvn clean install</b>
 4. Go to <b>war</b> and start jetty: <b>mvn jetty:run</b>
