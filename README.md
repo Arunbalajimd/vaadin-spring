@@ -38,7 +38,7 @@ How to get startet:
 2. Clone the repository
 3. Go to <b>war-build</b> and run: <b>mvn clean install</b>
 4. Go to <b>war</b> and start jetty: <b>mvn jetty:run</b>
-5. Open your browser to <b>http://localhost:8080/</b> and test the application
+5. Open your browser: <b>http://localhost:8080/</b> and have fun!
 
 Things i would like to see in this prototype (may be contributed by others :) )
 
