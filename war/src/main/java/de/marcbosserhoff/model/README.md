@@ -1,0 +1,1 @@
+In this place you put all your entity classes.
