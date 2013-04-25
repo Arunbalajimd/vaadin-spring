@@ -1,9 +1,10 @@
 vaadin7-spring3-archtypes
 =========================
 
-Several Vaadin 7 and Spring 3 maven archetypes for WAR/EAR projects
+Vaadin 7 and Spring 3 maven archetype for WAR/EAR projects
 
-Feel free to contribute!! If you find something missing give me feedback enhance this prototype application.
+<b>Feel free to contribute!!</b>
+If you find something thats missing give me feedback for enhancement.
 
 - The <b>parent</b> project defines all common dependencies and its versions for dependency management. The
     defined dependency groups are:
