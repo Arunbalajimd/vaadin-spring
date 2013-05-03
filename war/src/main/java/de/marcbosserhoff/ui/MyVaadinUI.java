@@ -5,13 +5,19 @@ import com.vaadin.annotations.Title;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.BaseTheme;
+import de.marcbosserhoff.authentication.SpringAuthentication;
 import de.marcbosserhoff.model.ExampleEntity;
 import de.marcbosserhoff.repositories.ExampleRepository;
+import de.marcbosserhoff.services.ExampleService;
+import de.marcbosserhoff.ui.event.LoginEvent;
+import de.marcbosserhoff.ui.event.LogoutEvent;
 import de.marcbosserhoff.ui.event.ReloadEntriesEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,7 +29,7 @@ import java.util.List;
 @Component
 @Scope("prototype")
 @Title("Example Vaadin Application")
-public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesListener {
+public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesListener, LoginEvent.LoginListener, LogoutEvent.LogoutListener {
 
     private Logger log = LoggerFactory.getLogger(MyVaadinUI.class);
 
@@ -33,13 +39,20 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     private ExampleContainer exampleContainer;
 
     @Autowired
+    private ExampleService exampleService;
+
+    @Autowired
     private ExampleRepository exampleRepository;
 
     private Table entityTable;
     private Long selectedId;
+    private Button loginButton;
 
     @Autowired
     private ExampleForm editForm;
+
+    @Autowired
+    private SpringAuthentication authentication;
 
     @Override
     protected void init(VaadinRequest request) {
@@ -57,6 +70,9 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     private void initLayout() {
         final VerticalLayout layout = new VerticalLayout();
         layout.setWidth("400px");
+
+        loginButton = new Button("Login");
+        loginButton.setStyleName(BaseTheme.BUTTON_LINK);
 
         entityTable = new Table();
         entityTable.setContainerDataSource(exampleContainer);
@@ -81,9 +97,12 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
         editForm.setBlackBoard(blackboard);
         editForm.setVisible(false);
 
+        layout.addComponent(loginButton);
         layout.addComponent(entityTable);
         layout.addComponent(buttonBar);
         layout.addComponent(editForm);
+
+        layout.setComponentAlignment(loginButton, Alignment.TOP_LEFT);
 
         layout.setMargin(true);
         setContent(layout);
@@ -121,7 +140,7 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
 
     private void removeSelectedEntry() {
         if (selectedId != null) {
-            exampleRepository.delete(selectedId);
+            exampleService.delete(selectedId);
             blackboard.fire(new ReloadEntriesEvent());
         }
     }
@@ -137,5 +156,13 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
         log.info("Received reload event. Refreshing entry table!");
         initData();
         entityTable.markAsDirty();
+    }
+
+    @Override
+    public void login(LoginEvent event) {
+    }
+
+    @Override
+    public void logout() {
     }
 }

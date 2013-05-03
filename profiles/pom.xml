@@ -389,6 +389,20 @@
                 </dependency>
             </dependencies>
         </profile>
+
+        <profile>
+            <id>google</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+
         <profile>
             <id>apache-commons</id>
             <activation>
