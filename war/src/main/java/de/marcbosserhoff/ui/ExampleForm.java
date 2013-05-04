@@ -1,12 +1,12 @@
 package de.marcbosserhoff.ui;
 
-import com.github.wolfie.blackboard.Blackboard;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 import de.marcbosserhoff.services.ExampleService;
 import de.marcbosserhoff.ui.event.ReloadEntriesEvent;
+import de.marcbosserhoff.util.EventSystem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,11 @@ public class ExampleForm extends FormLayout {
 
     private Logger log = LoggerFactory.getLogger(ExampleForm.class);
 
-    private Blackboard blackboard;
-
     @Autowired
     private ExampleService exampleService;
+
+    @Autowired
+    private EventSystem eventSystem;
 
     private TextField name = new TextField("Name:");
 
@@ -75,10 +76,6 @@ public class ExampleForm extends FormLayout {
 
     private void fireCommitEvent() {
         log.info("Fire commit event!");
-        blackboard.fire(new ReloadEntriesEvent());
-    }
-
-    public void setBlackBoard(Blackboard blackboard) {
-        this.blackboard = blackboard;
+        eventSystem.fire(new ReloadEntriesEvent());
     }
 }

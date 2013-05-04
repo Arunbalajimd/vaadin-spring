@@ -1,6 +1,5 @@
 package de.marcbosserhoff.ui;
 
-import com.github.wolfie.blackboard.Blackboard;
 import com.vaadin.annotations.Title;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.server.VaadinRequest;
@@ -13,11 +12,12 @@ import de.marcbosserhoff.services.ExampleService;
 import de.marcbosserhoff.ui.event.LoginEvent;
 import de.marcbosserhoff.ui.event.LogoutEvent;
 import de.marcbosserhoff.ui.event.ReloadEntriesEvent;
+import de.marcbosserhoff.util.EventSystem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,13 +27,11 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 @Component
-@Scope("prototype")
+@Scope("session")
 @Title("Example Vaadin Application")
 public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesListener, LoginEvent.LoginListener, LogoutEvent.LogoutListener {
 
     private Logger log = LoggerFactory.getLogger(MyVaadinUI.class);
-
-    private Blackboard blackboard = new Blackboard();
 
     @Autowired
     private ExampleContainer exampleContainer;
@@ -47,9 +45,18 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     private Table entityTable;
     private Long selectedId;
     private Button loginButton;
+    private Button logoutButton;
+
+    private boolean isLoggedIn;
 
     @Autowired
     private ExampleForm editForm;
+
+    @Autowired
+    private LoginView loginView;
+
+    @Autowired
+    private EventSystem eventSystem;
 
     @Autowired
     private SpringAuthentication authentication;
@@ -73,6 +80,21 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
 
         loginButton = new Button("Login");
         loginButton.setStyleName(BaseTheme.BUTTON_LINK);
+        loginButton.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                doLogin();
+            }
+        });
+
+        logoutButton = new Button("Logout");
+        logoutButton.setStyleName(BaseTheme.BUTTON_LINK);
+        logoutButton.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                doLogout();
+            }
+        });
 
         entityTable = new Table();
         entityTable.setContainerDataSource(exampleContainer);
@@ -94,7 +116,6 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
         final AbstractLayout buttonBar = initButtonBar();
         buttonBar.setWidth("100%");
 
-        editForm.setBlackBoard(blackboard);
         editForm.setVisible(false);
 
         layout.addComponent(loginButton);
@@ -106,6 +127,15 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
 
         layout.setMargin(true);
         setContent(layout);
+    }
+
+    private void doLogout() {
+        authentication.logout();
+        eventSystem.fire(new LogoutEvent());
+    }
+
+    private void doLogin() {
+        addWindow(loginView);
     }
 
     private AbstractLayout initButtonBar() {
@@ -141,14 +171,12 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     private void removeSelectedEntry() {
         if (selectedId != null) {
             exampleService.delete(selectedId);
-            blackboard.fire(new ReloadEntriesEvent());
+            eventSystem.fire(new ReloadEntriesEvent());
         }
     }
 
     private void registerEvents() {
-        blackboard.enableLogging();
-        blackboard.register(ReloadEntriesEvent.ReloadEntriesListener.class, ReloadEntriesEvent.class);
-        blackboard.addListener(this);
+        eventSystem.addListener(this);
     }
 
     @Override
@@ -160,9 +188,25 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
 
     @Override
     public void login(LoginEvent event) {
+        log.info("Received login event");
+        isLoggedIn = true;
+        handleButtonVisibility();
     }
 
     @Override
-    public void logout() {
+    public void logout(LogoutEvent event) {
+        log.info("Received logout event");
+        isLoggedIn = false;
+        handleButtonVisibility();
     }
+
+    private void handleButtonVisibility() {
+        loginButton.setVisible(!isLoggedIn);
+        logoutButton.setVisible(isLoggedIn);
+    }
+
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
+
 }

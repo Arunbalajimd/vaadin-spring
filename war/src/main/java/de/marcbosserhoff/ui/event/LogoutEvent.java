@@ -8,7 +8,7 @@ public class LogoutEvent implements Event {
 
     public interface LogoutListener extends Listener {
         @ListenerMethod
-        public void logout();
+        public void logout(LogoutEvent event);
     }
 
     public LogoutEvent() {
