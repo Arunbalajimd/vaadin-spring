@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -168,6 +168,7 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
         return buttonBar;
     }
 
+    @Secured("ROLE_ADMIN")
     private void removeSelectedEntry() {
         if (selectedId != null) {
             exampleService.delete(selectedId);
