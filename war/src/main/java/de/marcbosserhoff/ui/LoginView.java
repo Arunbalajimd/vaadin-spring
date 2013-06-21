@@ -11,10 +11,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import ru.xpoft.vaadin.VaadinView;
+
+import javax.annotation.PostConstruct;
 
 @Component
 @Scope("prototype")
-public class LoginView extends Window implements View {
+@VaadinView(LoginView.VIEW_NAME)
+public class LoginView extends VerticalLayout implements View {
+
+    public static final String VIEW_NAME = "login";
 
     private Logger log = LoggerFactory.getLogger(LoginView.class);
 
@@ -31,12 +37,16 @@ public class LoginView extends Window implements View {
     private EventSystem eventSystem;
 
     public LoginView() {
+    }
+
+    @PostConstruct
+    private void init() {
         initUI();
     }
 
     private void initUI() {
         setCaption("Login with your Credentials");
-        setModal(true);
+        setMargin(true);
 
         loginButton = new Button("Login");
         cancelButton = new Button("Cancel");
@@ -56,12 +66,11 @@ public class LoginView extends Window implements View {
         // Create layouts
         FormLayout loginForm = new FormLayout(username, password);
         HorizontalLayout buttonLayout = new HorizontalLayout(loginButton, cancelButton);
-        VerticalLayout mainLayout = new VerticalLayout(loginForm, buttonLayout);
-        mainLayout.setMargin(true);
         buttonLayout.setComponentAlignment(loginButton, Alignment.MIDDLE_LEFT);
         buttonLayout.setComponentAlignment(cancelButton, Alignment.MIDDLE_RIGHT);
 
-        setContent(mainLayout);
+        addComponent(loginForm);
+        addComponent(buttonLayout);
     }
 
     private void registerListeners() {
@@ -75,13 +84,13 @@ public class LoginView extends Window implements View {
         cancelButton.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent event) {
-                closeWindow();
+                navigateToMainView();
             }
         });
     }
 
-    private void closeWindow() {
-        close();
+    private void navigateToMainView() {
+        Application.getCurrent().getNavigator().navigateTo(MainView.VIEW_NAME);
     }
 
     private void tryLogin() {
@@ -93,7 +102,7 @@ public class LoginView extends Window implements View {
         boolean success = authentication.login(user, pass);
         if (success) {
             log.info("Successfully logged in with user: {}", user);
-            closeWindow();
+            navigateToMainView();
             LoginEvent loginEvent = new LoginEvent(user, pass);
             eventSystem.fire(loginEvent);
         }

@@ -1,8 +1,9 @@
 package de.marcbosserhoff.ui;
 
-import com.vaadin.annotations.Title;
 import com.vaadin.event.ItemClickEvent;
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.BaseTheme;
 import de.marcbosserhoff.authentication.SpringAuthentication;
@@ -19,19 +20,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
+import ru.xpoft.vaadin.VaadinView;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
-/**
- * The Application's "main" class
- */
-@SuppressWarnings("serial")
 @Component
-@Scope("session")
-@Title("Example Vaadin Application")
-public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesListener, LoginEvent.LoginListener, LogoutEvent.LogoutListener {
+@Scope("prototype")
+@VaadinView(value = MainView.VIEW_NAME, cached = true)
+public class MainView extends Panel implements View, ReloadEntriesEvent.ReloadEntriesListener, LoginEvent.LoginListener, LogoutEvent.LogoutListener {
 
-    private Logger log = LoggerFactory.getLogger(MyVaadinUI.class);
+    public static final String VIEW_NAME = "";
+
+    private Logger log = LoggerFactory.getLogger(MainView.class);
+
+    @Autowired
+    private EventSystem eventSystem;
 
     @Autowired
     private ExampleContainer exampleContainer;
@@ -42,30 +46,30 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     @Autowired
     private ExampleRepository exampleRepository;
 
+    @Autowired
+    private ExampleForm editForm;
+
+    @Autowired
+    private SpringAuthentication authentication;
+
+    private Navigator navigator;
+
+    private boolean isLoggedIn;
+
     private Table entityTable;
     private Long selectedId;
     private Button loginButton;
     private Button logoutButton;
 
-    private boolean isLoggedIn;
+    public MainView() {
+    }
 
-    @Autowired
-    private ExampleForm editForm;
-
-    @Autowired
-    private LoginView loginView;
-
-    @Autowired
-    private EventSystem eventSystem;
-
-    @Autowired
-    private SpringAuthentication authentication;
-
-    @Override
-    protected void init(VaadinRequest request) {
+    @PostConstruct
+    private void init() {
         initData();
         initLayout();
         registerEvents();
+        log.info("MainView postConstruct done!");
     }
 
     private void initData() {
@@ -135,7 +139,7 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
     }
 
     private void doLogin() {
-        addWindow(loginView);
+        navigator.navigateTo(LoginView.VIEW_NAME);
     }
 
     private AbstractLayout initButtonBar() {
@@ -210,4 +214,8 @@ public class MyVaadinUI extends UI implements ReloadEntriesEvent.ReloadEntriesLi
         return isLoggedIn;
     }
 
+    @Override
+    public void enter(ViewChangeListener.ViewChangeEvent event) {
+        navigator = event.getNavigator();
+    }
 }
