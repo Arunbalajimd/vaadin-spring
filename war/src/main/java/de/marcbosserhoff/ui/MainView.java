@@ -6,10 +6,11 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.BaseTheme;
-import de.marcbosserhoff.authentication.SpringAuthentication;
 import de.marcbosserhoff.model.ExampleEntity;
 import de.marcbosserhoff.repositories.ExampleRepository;
 import de.marcbosserhoff.services.ExampleService;
+import de.marcbosserhoff.spring.security.SpringAuthentication;
+import de.marcbosserhoff.spring.security.UISecured;
 import de.marcbosserhoff.ui.event.LoginEvent;
 import de.marcbosserhoff.ui.event.LogoutEvent;
 import de.marcbosserhoff.ui.event.ReloadEntriesEvent;
@@ -60,6 +61,9 @@ public class MainView extends Panel implements View, ReloadEntriesEvent.ReloadEn
     private Long selectedId;
     private Button loginButton;
     private Button logoutButton;
+
+    @UISecured("ROLE_ADMIN")
+    private Button deleteButton;
 
     public MainView() {
     }
@@ -148,7 +152,7 @@ public class MainView extends Panel implements View, ReloadEntriesEvent.ReloadEn
         buttonBar.setSpacing(true);
 
         final Button addButton = new Button("Add entry");
-        final Button deleteButton = new Button("Delete entry");
+        deleteButton = new Button("Delete entry");
 
         buttonBar.addComponent(addButton);
         buttonBar.addComponent(deleteButton);

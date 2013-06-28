@@ -1,4 +1,4 @@
-package de.marcbosserhoff.authentication;
+package de.marcbosserhoff.spring.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

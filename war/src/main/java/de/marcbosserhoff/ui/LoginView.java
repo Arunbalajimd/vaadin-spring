@@ -3,7 +3,7 @@ package de.marcbosserhoff.ui;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
-import de.marcbosserhoff.authentication.SpringAuthentication;
+import de.marcbosserhoff.spring.security.SpringAuthentication;
 import de.marcbosserhoff.ui.event.LoginEvent;
 import de.marcbosserhoff.util.EventSystem;
 import org.slf4j.Logger;

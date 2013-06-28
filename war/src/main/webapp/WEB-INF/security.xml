@@ -37,4 +37,6 @@
     </bean>
     -->
 
+    <bean class="de.marcbosserhoff.spring.security.SpringSecurityBeanPostprocessor" id="securityBeanPostprocessor"/>
+
 </beans>

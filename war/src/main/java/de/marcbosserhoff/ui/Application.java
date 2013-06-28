@@ -5,8 +5,8 @@ import com.vaadin.annotations.Title;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
+import de.marcbosserhoff.spring.logging.Log;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import ru.xpoft.vaadin.DiscoveryNavigator;
@@ -14,19 +14,18 @@ import ru.xpoft.vaadin.DiscoveryNavigator;
 /**
  * The Application's "main" class
  */
-@SuppressWarnings("serial")
 @Component
-@Scope("session")
+@Scope("prototype")
 @Title("Example Vaadin Application")
 @PreserveOnRefresh
 public class Application extends UI implements Page.UriFragmentChangedListener {
 
-    private Logger log = LoggerFactory.getLogger(Application.class);
+    @Log
+    private Logger log;
 
     private DiscoveryNavigator navigator;
 
     public Application() {
-        log.info("Application constructor called");
     }
 
     @Override
