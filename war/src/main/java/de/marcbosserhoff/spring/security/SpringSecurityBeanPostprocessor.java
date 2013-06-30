@@ -24,8 +24,8 @@ public class SpringSecurityBeanPostprocessor implements BeanPostProcessor {
             public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
                 if (field.isAnnotationPresent(UISecured.class)) {
                     UISecured secured = field.getAnnotation(UISecured.class);
+                    logger.debug("Checking current roles for vaadin component: " + field.getName() + " in class " + bean.getClass().getName() + " if user has role " + secured.value().toString());
                     if (field.getType().isAssignableFrom(Component.class)) {
-                        logger.debug("Checking current roles for vaadin component: " + field.getName() + " in class " + bean.getClass().getName() + " if user has role " + secured.value());
                     }
                 }
             }

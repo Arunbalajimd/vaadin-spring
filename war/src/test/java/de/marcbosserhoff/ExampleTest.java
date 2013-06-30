@@ -3,6 +3,7 @@ package de.marcbosserhoff;
 import de.marcbosserhoff.model.ExampleEntity;
 import de.marcbosserhoff.repositories.ExampleRepository;
 import de.marcbosserhoff.services.ExampleService;
+import de.marcbosserhoff.test.SpringJUnit4ClassRunnerWithLog4J;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-@ContextConfiguration("classpath*:applicationContext-test.xml")
+@ContextConfiguration("classpath*:test-context.xml")
 @RunWith(SpringJUnit4ClassRunnerWithLog4J.class)
 public class ExampleTest {
 

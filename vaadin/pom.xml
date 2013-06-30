@@ -11,7 +11,22 @@
     </parent>
 
     <groupId>de.marcbosserhoff.vaadin-spring</groupId>
-    <artifactId>framework</artifactId>
+    <artifactId>vaadin</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.marcbosserhoff.vaadin-spring</groupId>
+            <artifactId>profiles</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>de.marcbosserhoff.vaadin-spring</groupId>
+            <artifactId>test</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
