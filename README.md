@@ -1,4 +1,4 @@
-vaadin7-spring3-archtypes
+vaadin-spring-framework
 =========================
 
 Vaadin 7 and Spring 3 maven archetype for WAR/EAR projects
