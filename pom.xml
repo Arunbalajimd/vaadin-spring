@@ -10,7 +10,6 @@
     <name>Framework for easier creating applications with Vaadin7 and Spring3</name>
     <modules>
         <module>parent</module>
-        <module>profiles</module>
         <module>vaadin</module>
         <module>test</module>
         <module>jpa</module>
