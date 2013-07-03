@@ -3,7 +3,7 @@ package de.marcbosserhoff.vaadin.configuration.xml;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
-@XmlType
+@XmlType(namespace = Namespaces.UI_NAMESPACE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class View {
 

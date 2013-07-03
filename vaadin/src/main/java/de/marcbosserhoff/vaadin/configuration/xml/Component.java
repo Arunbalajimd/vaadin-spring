@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType
+@XmlType(namespace = Namespaces.UI_NAMESPACE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Component {
 

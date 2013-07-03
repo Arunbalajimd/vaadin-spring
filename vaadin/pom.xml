@@ -96,10 +96,18 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <transformSchemas>
+                        <transformSchema>
+                            <uri>http://vaadin-spring.marcbosserhoff.de/xsd/vaadin/ui</uri>
+                            <toPrefix>ui</toPrefix>
+                            <toFile>ui.xsd</toFile>
+                        </transformSchema>
+                    </transformSchemas>
                     <verbose>true</verbose>
                     <includes>
                         <include>de/marcbosserhoff/vaadin/configuration/xml/*.java</include>
                     </includes>
+                    <outputDirectory>${project.build.directory}/src/main/resources</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
