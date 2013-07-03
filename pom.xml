@@ -15,5 +15,6 @@
         <module>jpa</module>
         <module>war</module>
         <module>war-build</module>
+        <module>tools</module>
     </modules>
 </project>
