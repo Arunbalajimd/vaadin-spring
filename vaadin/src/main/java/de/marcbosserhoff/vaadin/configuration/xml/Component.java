@@ -1,33 +1,35 @@
 package de.marcbosserhoff.vaadin.configuration.xml;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
+/**
+ * A component is a base class for every vaadin component configuration. Each vaadin element and its properties are
+ * mapped to one of these xml annotated java classes. Plugin developers can write their own configuration POJOs
+ * and generate the XSD scheme to be used in their application for configuring plugin-specific settings.
+ */
 @XmlType(namespace = Namespaces.UI_NAMESPACE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Component {
 
     @XmlAttribute
-    private boolean visible;
+    private Boolean visible;
 
     @XmlAttribute
-    private boolean readonly;
+    private Boolean readonly;
 
-    public boolean isVisible() {
+    public Boolean isVisible() {
         return visible;
     }
 
-    public void setVisible(boolean visible) {
+    public void setVisible(Boolean visible) {
         this.visible = visible;
     }
 
-    public boolean isReadonly() {
+    public Boolean isReadonly() {
         return readonly;
     }
 
-    public void setReadonly(boolean readonly) {
+    public void setReadonly(Boolean readonly) {
         this.readonly = readonly;
     }
 }

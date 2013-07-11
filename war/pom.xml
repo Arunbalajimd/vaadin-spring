@@ -13,7 +13,7 @@
     <artifactId>war</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Vaadin Web Application</name>
+    <name>war</name>
 
     <properties>
         <jetty.version>8.1.10.v20130312</jetty.version>
@@ -22,20 +22,34 @@
     <dependencies>
         <dependency>
             <groupId>de.marcbosserhoff.vaadin-spring</groupId>
-            <artifactId>profiles</artifactId>
+            <artifactId>jpa</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>de.marcbosserhoff.vaadin-spring</groupId>
-            <artifactId>jpa</artifactId>
+            <artifactId>tools</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>de.marcbosserhoff.vaadin-spring</groupId>
+            <artifactId>vaadin</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>de.marcbosserhoff.vaadin-spring</groupId>
             <artifactId>test</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <type>test-jar</type>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
             <groupId>org.vaadin.addons</groupId>

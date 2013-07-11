@@ -9,8 +9,11 @@
     <packaging>pom</packaging>
     <name>Multimodule build for Vaadin7 - WAR</name>
     <modules>
+        <module>../jpa</module>
         <module>../parent</module>
-        <module>../profiles</module>
+        <module>../test</module>
+        <module>../tools</module>
+        <module>../vaadin</module>
         <module>../war</module>
     </modules>
 </project>

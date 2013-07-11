@@ -3,7 +3,10 @@ package de.marcbosserhoff.vaadin.configuration.xml;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
-@XmlType(namespace = Namespaces.UI_NAMESPACE)
+/**
+ * The view is the top level element of a vaadin configuration file.
+ */
+@XmlRootElement(namespace = Namespaces.UI_NAMESPACE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class View {
 
@@ -30,5 +33,13 @@ public class View {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Component> getComponents() {
+        return components;
+    }
+
+    public void setComponents(List<Component> components) {
+        this.components = components;
     }
 }
