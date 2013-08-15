@@ -57,5 +57,5 @@
         <property name="validationQuery" value="SELECT 1"/>
     </bean>
 
-    <bean class="de.marcbosserhoff.spring.logging.LoggingBeanPostProcessor" id="loggingBeanPostProcessor"/>
+    <bean class="de.de.marcbosserhoff.spring.logging.LoggingBeanPostProcessor" id="loggingBeanPostProcessor"/>
 </beans>

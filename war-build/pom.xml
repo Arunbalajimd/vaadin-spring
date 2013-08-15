@@ -10,6 +10,7 @@
     <name>Multimodule build for Vaadin7 - WAR</name>
     <modules>
         <module>../jpa</module>
+        <module>../backend</module>
         <module>../parent</module>
         <module>../test</module>
         <module>../tools</module>

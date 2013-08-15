@@ -13,6 +13,6 @@
     <!-- ========================== -->
 
     <!-- Scan for spring annotations automatically -->
-    <context:component-scan base-package="de.marcbosserhoff"/>
+    <context:component-scan base-package="de.de.marcbosserhoff"/>
 
 </beans>

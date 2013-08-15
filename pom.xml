@@ -16,5 +16,6 @@
         <module>war</module>
         <module>war-build</module>
         <module>tools</module>
+        <module>backend</module>
     </modules>
 </project>

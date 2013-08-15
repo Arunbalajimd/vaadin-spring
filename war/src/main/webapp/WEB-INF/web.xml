@@ -59,7 +59,7 @@
         <init-param>
             <description>Application widgetset</description>
             <param-name>widgetset</param-name>
-            <param-value>de.marcbosserhoff.AppWidgetSet</param-value>
+            <param-value>de.de.marcbosserhoff.AppWidgetSet</param-value>
         </init-param>
         <init-param>
             <param-name>closeIdleSessions</param-name>

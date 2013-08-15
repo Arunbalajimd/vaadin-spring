@@ -17,6 +17,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>blackboard</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>de.marcbosserhoff.vaadin-spring</groupId>
             <artifactId>tools</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -40,26 +45,6 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <dependency>
             <groupId>ru.xpoft.vaadin</groupId>
@@ -117,19 +102,19 @@
                 <configuration>
                     <transformSchemas>
                         <transformSchema>
-                            <uri>http://www.marcbosserhoff.de/schema/vaadin/view</uri>
+                            <uri>http://www.de.marcbosserhoff.de/schema/vaadin/view</uri>
                             <toPrefix>view</toPrefix>
                             <toFile>view.xsd</toFile>
                         </transformSchema>
                         <transformSchema>
-                            <uri>http://www.marcbosserhoff.de/schema/vaadin/ui</uri>
+                            <uri>http://www.de.marcbosserhoff.de/schema/vaadin/ui</uri>
                             <toPrefix>ui</toPrefix>
                             <toFile>ui.xsd</toFile>
                         </transformSchema>
                     </transformSchemas>
                     <verbose>true</verbose>
                     <includes>
-                        <include>de/marcbosserhoff/vaadin/configuration/xml/*.java</include>
+                        <include>de/de.marcbosserhoff/vaadin/configuration/xml/*.java</include>
                     </includes>
                     <outputDirectory>${project.build.directory}/schema</outputDirectory>
                 </configuration>
