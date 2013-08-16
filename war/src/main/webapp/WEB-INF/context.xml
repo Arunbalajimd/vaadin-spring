@@ -23,6 +23,7 @@
 
     <!-- Use spring transaction manager with aspectj -->
     <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
+
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
@@ -57,5 +58,5 @@
         <property name="validationQuery" value="SELECT 1"/>
     </bean>
 
-    <bean class="de.de.marcbosserhoff.spring.logging.LoggingBeanPostProcessor" id="loggingBeanPostProcessor"/>
+    <bean class="de.marcbosserhoff.spring.logging.LoggingBeanPostProcessor" id="loggingBeanPostProcessor"/>
 </beans>

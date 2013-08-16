@@ -28,6 +28,7 @@
             <groupId>de.marcbosserhoff.vaadin-spring</groupId>
             <artifactId>test</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
     </dependencies>
