@@ -37,7 +37,7 @@ How to get startet:
 1. Get Java und Maven configured on your shell
 2. Clone the repository
 3. Go to <b>war-build</b> and run: <b>mvn clean install</b>
-4. Go to <b>war</b> and start jetty: <b>mvn jetty:run</b>
+4. Go to <b>war</b> and start jetty: <b>mvn jboss-as:run</b>
 5. Open your browser: <b>http://localhost:8080/</b> and have fun!
 
 Things i would like to see in this prototype (may be contributed by others :) )
