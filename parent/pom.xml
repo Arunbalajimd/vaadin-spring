@@ -12,7 +12,7 @@
     <properties>
         <jdk.version>1.6</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>7.1.5</vaadin.version>
+        <vaadin.version>7.1.6</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
         <jaxb.version>2.2.11</jaxb.version>
 
