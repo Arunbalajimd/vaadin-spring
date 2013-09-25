@@ -7,7 +7,6 @@ import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.BaseTheme;
 import de.marcbosserhoff.model.ExampleEntity;
-import de.marcbosserhoff.repositories.ExampleRepository;
 import de.marcbosserhoff.services.ExampleService;
 import de.marcbosserhoff.spring.security.SpringAuthentication;
 import de.marcbosserhoff.spring.security.UISecured;
@@ -45,9 +44,6 @@ public class MainView extends Panel implements View, ReloadEntriesEvent.ReloadEn
     private ExampleService exampleService;
 
     @Autowired
-    private ExampleRepository exampleRepository;
-
-    @Autowired
     private ExampleForm editForm;
 
     @Autowired
@@ -77,7 +73,7 @@ public class MainView extends Panel implements View, ReloadEntriesEvent.ReloadEn
     }
 
     private void initData() {
-        List<ExampleEntity> all = exampleRepository.findAll();
+        List<ExampleEntity> all = exampleService.findAll();
         exampleContainer.removeAllItems();
         exampleContainer.addAll(all);
     }
