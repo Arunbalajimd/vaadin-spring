@@ -55,7 +55,7 @@
         <property name="timeBetweenEvictionRunsMillis" value="1800000"/>
         <property name="numTestsPerEvictionRun" value="3"/>
         <property name="minEvictableIdleTimeMillis" value="1800000"/>
-        <property name="validationQuery" value="SELECT 1"/>
+        <property name="validationQuery" value="${database.validationQuery}"/>
     </bean>
 
     <bean class="de.marcbosserhoff.spring.logging.LoggingBeanPostProcessor" id="loggingBeanPostProcessor"/>
